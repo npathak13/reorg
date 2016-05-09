@@ -1,0 +1,145 @@
+<html>
+<head>
+	<title> Reorg Research - Case Study - Niraj Pathak</title>
+</head>
+<body>
+<table>
+	<thead>
+		<tr>
+			<th> ID </th>
+			<th> Covered Recipient Type </th>
+			<th> Teaching Hospital ID </th>
+			<th> Teaching Hospital Name </th>
+			<th> Physician Profile ID </th>
+			<th> Physician First Name </th>
+			<th> Physicican Middle Name </th>
+			<th> Physicican Last Name </th>
+			<th> Physicican Name Suffix </th>
+			<th> Recipient Primary Business Address </th>
+			<th> Recipient Primary Business Address (Line 2) </th>
+			<th> Recipient City </th>
+			<th> Recipient State </th>
+			<th> Recipient Zip Code </th>
+			<th> Recipient Country </th>
+			<th> Recipient Province </th>
+			<th> Recipient Postal Code </th>
+			<th> Physician Primary Type </th>
+			<th> Physician Speciality </th>
+			<th> Phsyicican License State Code 1 </th>
+			<th> Physicican License State Code 2 </th>
+			<th> Physicican License State Code 3 </th>
+			<th> Physicican License State Code 4 </th>
+			<th> Physicican License State Code 5 </th>
+			<th> Submitting Applicable Manufacturer or Applicable GPO Name </th>
+			<th> Applicable Manufacturer or Applicable GPO Making Payment ID </th>
+			<th> Applicable Manufacturer or Applicable GPO Making Payment Name </th>
+			<th> Applicable Manufacturer or Applicable GPO Making Payment State </th>
+			<th> Applicable Manufacturer or Applicable GPO Making Payment Country </th>
+			<th> Total Amount of Payment (USD) </th>
+			<th> Date of Payment </th>
+			<th> Number of Payments Included in Total Amount </th>
+			<th> Form of Payment or Transfer of Value </th>
+			<th> Nature of Payment or Transfer of Value </th>
+			<th> City of Travel </th>
+			<th> State of Travel </th>
+			<th> Country of Travel </th>
+			<th> Physicican Ownership Indicator </th>
+			<th> Third Party Payment Recipient Indicator </th>
+			<th> Name of Third Party Entity Recieving Payment or Transfer of Value </th>
+			<th> Charity Indicator </th>
+			<th> Third Party Equals Covered Recipient Indicator </th>
+			<th> Contextual Information </th>
+			<th> Delay in Publication </th>
+			<th> Record ID </th>
+			<th> Dispute Status for Publication </th>
+			<th> Product Indicator </th>
+			<th> Name of Associated Covered Drug or Biological 1 </th>
+			<th> Name of Associated Covered Drug or Biological 2 </th>
+			<th> Name of Associated Covered Drug or Biological 3 </th>
+			<th> Name of Associated Covered Drug or Biological 4 </th>
+			<th> Name of Associated Covered Drug or Biological 5 </th>
+			<th> NDC of Associated Covered Drug or Biological 1 </th>
+			<th> NDC of Associated Covered Drug or Biological 2 </th>
+			<th> NDC of Associated Covered Drug or Biological 3 </th>
+			<th> NDC of Associated Covered Drug or Biological 4 </th>
+			<th> NDC of Associated Covered Drug or Biological 5 </th>
+			<th> Name of Associated Covered Device or Medical Supply 1 </th>
+			<th> Name of Associated Covered Device or Medical Supply 2 </th>
+			<th> Name of Associated Covered Device or Medical Supply 3 </th>
+			<th> Name of Associated Covered Device or Medical Supply 4 </th>
+			<th> Name of Associated Covered Device or Medical Supply 5 </th>
+			<th> Program Year </th>
+			<th> Paymeny Publication Date </th>
+		</tr>
+	</thead>
+	<tbody>
+	{% for entity in entities %}
+		<tr> 
+			<td> {{ entity.id }} </td>
+			<td> {{ entity.coveredRecipientType }} </td>
+			<td> {{ entity.teachingHospitalId }} </td>
+			<td> {{ entity.teachingHospitalName }} </td>
+			<td> {{ entity.phsysicianProfileId }} </td>
+			<td> {{ entity.physicianFirstName  }} </td>
+			<td> {{ entity.physicianMiddleName }} </td>
+			<td> {{ entity.physicianLastName }} </td>
+			<td> {{ entity.physicianNameSuffix }} </td>
+			<td> {{ entity.recipientPrimaryBusinessAddressLine1 }} </td>
+			<td> {{ entity.recipientPrimaryBusinessAddressLine2 }} </td>
+			<td> {{ entity.recipientCity }} </td>
+			<td> {{ entity.recipientState }} </td>
+			<td> {{ entity.recpientZipCode }} </td>
+			<td> {{ entity.recpientCountry }} </td>
+			<td> {{ entity.recipientProvince }} </td>
+			<td> {{ entity.recipientPostCode }} </td>
+			<td> {{ entity.physicianPrimaryType }} </td>
+			<td> {{ entity.physicianSpeciality }} </td>
+			<td> {{ entity.physicianLicenseState }} </td>
+			<td> {{ entity.physicianLicenseState2 }} </td>
+			<td> {{ entity.physicicanLicenseState3 }} </td>
+			<td> {{ entity.physicianLicenseState4 }} </td>
+			<td> {{ entity.physicianLicenseState5 }} </td>
+			<td> {{ entity.applicableManufacturerName }} </td>
+			<td> {{ entity.applicableManufacturerId }} </td>
+			<td> {{ entity.applicableManufacturerMakingPaymentName }} </td>
+			<td> {{ entity.applicableManufacturerState }} </td>
+			<td> {{ entity.applicableManufacturerCountry }} </td>
+			<td> $ {{ entity.totalAmountOfPayment }} </td>
+			<td> {{ entity.dateOfPayment|date('m-d-Y') }} </td>
+			<td> {{ entity.numberOfPaymentIncludedInTotal }} </td>
+			<td> {{ entity.formOfPaymentOrTransferValue }} </td>
+			<td> {{ entity.NatureOfPayment }} </td>
+			<td> {{ entity.cityOfTravel }} </td>
+			<td> {{ entity.StateOfTravel }} </td>
+			<td> {{ entity.CountryOfTravel }} </td>
+			<td> {{ entity.physicianOwnershipIndicator ? 'Yes' : 'No' }} </td>
+			<td> {{ entity.thirdPartyPaymentRecipientIndicator ? 'Yes' : 'No' }} </td>
+			<td> {{ entity.nameOfThirdPartyRecievingPayment }} </td>
+			<td> {{ entity.charityIndicator ? 'Yes' : 'No' }} </td>
+			<td> {{ entity.thirdPartyEqualsCoveredRecipientIndcator }} </td>
+			<td> {{ entity.contextualInformation }} </td>
+			<td> {{ entity.delayInPublicationIndicator ? 'Yes' : 'No' }} </td>
+			<td> {{ entity.recordId }} </td>
+			<td> {{ entity.disputeStatusForPublication ? 'Yes' : 'No' }} </td>
+			<td> {{ entity.productIndicator }} </td>
+			<td> {{ entity.nameOfAssociatedCoveredDrug }} </td>
+			<td> {{ entity.nameOfAssociatedCoveredDrug2 }} </td>
+			<td> {{ entity.nameOfAssociatedCoveredDrug3  }} </td>
+			<td> {{ entity.nameOfAssociatedCoveredDrug4 }} </td>
+			<td> {{ entity.nameOfAssociatedCoveredDrug5 }} </td>
+			<td> {{ entity.ndcOfAssociatedDrug }} </td>
+			<td> {{ entity.ndcOfAssociatedDrug2 }} </td>
+			<td> {{ entity.ndcOfAssociatedDrug3 }} </td>
+			<td> {{ entity.ndcOfAssociatedDrug4 }} </td>
+			<td> {{ entity.ndcOfAssociatedDrug5 }} </td>
+			<td> {{ entity.nameOfCoveredDeviceOrSupply }} </td>
+			<td> {{ entity.nameOfCoveredDeviceOrSupply2 }} </td>
+			<td> {{ entity.nameOfCoveredDeviceOrSupply3 }} </td>
+			<td> {{ entity.nameOfCoveredDeviceOrSupply4 }} </td>
+			<td> {{ entity.nameOfCoveredDeviceOrSupply5 }} </td>
+			<td> {{ entity.programYear }} </td>
+			<td> {{ entity.paymentPublicationDate|date('m-d-Y') }} </td>
+		</tr>
+	{% endfor %}
+</tbody>
+</body>
