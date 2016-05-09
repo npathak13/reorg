@@ -56,4 +56,15 @@ class DefaultController extends Controller
 		$session->getFlashBag()->add('success', 'Data Susccessfully Imported');
     	return new RedirectResponse($this->generateUrl('index'));
     }
+    
+    /**
+     * @Route("search/{parameters}", name="search_data")
+     * 
+     */
+    public function searchAllPropertiesAction($parameters)
+    {
+    	$em = $this->getDoctrine->getManager();
+    	$results = $em->getRepository('AppBundle:PaymentData')->searchAll($parameters);
+    	return new JsonResponse($results);
+    }
 }

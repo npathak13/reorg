@@ -1,2 +1,2 @@
-com.dubture.composer.corebuildpath.includes.excludes=<buildpathentry including\="*/" kind\="src" path\="vendor"/>\n
+com.dubture.composer.corebuildpath.includes.excludes=<buildpathentry including\="*/|autoload.php/|composer/|doctrine/|incenteev/|ircmaxell/|jdorn/|lifo/|liuggio/|monolog/|paragonie/|phpoffice/|psr/|sensio/|sensiolabs/|swiftmailer/|symfony/|twig/" kind\="src" path\="vendor"/>\n
 eclipse.preferences.version=1
