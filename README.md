@@ -29,4 +29,4 @@ Setup Instructions
 
 8) Navigate to 127.0.0.1:8000 to access the application.
 
-9) Click "Check Data For Updates" to import the initial data set. Alternatively I've included a console command that will also import the data. Large datasets will cause the HTTP to time out, running it from the console will allow you to import larger sets of data. You can run the command by typing app/console app:import:data into the main application directory. 
+9) Click "Check Data For Updates" to import the initial data set. Alternatively I've included a console command that will also import the data. Large datasets will cause the HTTP to time out, running it from the console will allow you to import larger sets of data. You can run the command by typing app/console app:import:data into the main application directory.
