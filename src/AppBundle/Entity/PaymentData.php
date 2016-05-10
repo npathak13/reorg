@@ -324,7 +324,7 @@ class PaymentData
     /**
      * @var int
      *
-     * @ORM\Column(name="recordId", type="integer", unique=true)
+     * @ORM\Column(name="recordId", type="integer")
      */
     private $recordId;
 

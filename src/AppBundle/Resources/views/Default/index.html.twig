@@ -16,9 +16,19 @@
 			<input id="queryInput" type="text">
 		</form>
 		<button type="button" class="btn-md btn-primary" id="resetSearch"> Reset Search</button>
-		<button type="button" class="btn-md btn-primary" id="exportData"> Export Data</button>
-		<button type="button" class="btn-md btn-primary" id="checkDataForUpdates"> Check Data For Updates</button>
+		<button type="button" class="btn-md btn-primary" id="exportData"> Prepare Current Data For Export </button>
+		<a href="{{ path('retrieve_export') }}"><button type="button" class="btn-md btn-primary" id="downloadData"> Download Latest Data Export </button></a>
+		<a href="{{ path('import_data') }}"><button type="button" class="btn-md btn-primary" id="checkDataForUpdates"> Check Data For Updates</button></a>
 	</div>
+	
+	{% for flashMessage in app.session.flashbag.get('success') %}
+        <div class="col-lg-7">
+        <div class="alert alert-success alert-dismissable flash-message">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+           {{ flashMessage }}
+        </div>
+        </div>
+	{% endfor %}
 	<table id="dataTable" class="table table-striped table-responsive">
 	<thead>
 		<tr>
@@ -158,6 +168,7 @@
 		</tr>
 	{% endfor %}
 </tbody>
+</form>
 	</div>
 </div>
 
@@ -208,13 +219,12 @@ $('#resetSearch').click(function(event){
 $('#exportData').click(function(event){
 	existingIdArray = getExistingIdsFromTable();
 	var serializedArray = JSON.stringify(existingIdArray);
-	console.log(serializedArray);
 	$.ajax({
 		type: "POST",
 		url: '/export/data',
 		data: {"data" : serializedArray},
 		success: function(data){
-				//success
+			alert('Data has been prepared for Export');
 			}
 		})
 });

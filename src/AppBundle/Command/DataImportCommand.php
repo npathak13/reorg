@@ -8,7 +8,6 @@ use Symfony\Component\Console\Output\OutputInterface;
 
 class DataImportCommand extends ContainerAwareCommand
 {
-	const FILE_PATH = '@AppBundle/Data/';
 	
 	protected function configure()
 	{
@@ -18,11 +17,7 @@ class DataImportCommand extends ContainerAwareCommand
 	
 	protected function execute(InputInterface $input, OutputInterface $output)
 	{
-		$container = $this->getContainer();
-		$kernel = $container->get('kernel');
-		$phpExcelService = $container->get('phpexcel');
-		$dataFile = $kernel->locateResource(self::FILE_PATH . 'payment_data.xls');
-		$phpExcelObject = $phpExcelService->createPHPExcelObject($dataFile);
-		var_dump($phpExcelObject);
+		$dataService = $this->getContainer()->get('app.data');
+		$dataService->importData();
 	}
 }
