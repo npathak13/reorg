@@ -21,7 +21,7 @@ Setup Instructions
 
 4) Create a MySQL Database for the application to connect to. 
 
-5) Update app/config/parameters.yml AND/OR app/config/parameters.yml.dist with the database connection information
+5) Update app/config/parameters.yml.dist with the database connection information
 
 6) Run app/console doctrine:schema:update --dump-sql from within the application directory (reorg, unless you renamed it) to view the database creation script. If everything looks good, run app/console doctrine:schema:update --force and your database table will be set up.
 
