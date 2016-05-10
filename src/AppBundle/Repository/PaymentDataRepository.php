@@ -223,4 +223,89 @@ class PaymentDataRepository extends EntityRepository
 		}
 		return true;
 	}
+	
+	public function searchAllParams($params)
+	{
+		
+		$dql = 'SELECT a FROM AppBundle:PaymentData a
+				WHERE a.id = :params
+				OR a.coveredRecipientType LIKE :params
+				OR a.teachingHospitalId LIKE :params
+				OR a.teachingHospitalName LIKE :params
+				OR a.phsysicianProfileId LIKE :params
+				OR a.physicianFirstName LIKE :params
+				OR a.physicianMiddleName LIKE :params
+				OR a.physicianLastName LIKE :params
+				OR a.physicianNameSuffix LIKE :params
+				OR a.recipientPrimaryBusinessAddressLine1 LIKE :params
+				OR a.recipientPrimaryBusinessAddressLine2 LIKE :params
+				OR a.recipientCity LIKE :params
+				OR a.recipientState LIKE :params
+				OR a.recpientZipCode LIKE :params
+				OR a.recpientCountry LIKE :params
+				OR a.recipientProvince LIKE :params
+				OR a.recipientPostCode LIKE :params
+				OR a.physicianPrimaryType LIKE :params
+				OR a.physicianSpeciality LIKE :params
+				OR a.physicianLicenseState LIKE :params
+				OR a.physicianLicenseState2 LIKE :params
+				OR a.physicicanLicenseState3 LIKE :params
+				OR a.physicianLicenseState4 LIKE :params
+				OR a.physicianLicenseState5 LIKE :params
+				OR a.applicableManufacturerName LIKE :params
+				OR a.applicableManufacturerId LIKE :params
+				OR a.applicableManufacturerMakingPaymentName LIKE :params
+				OR a.applicableManufacturerState LIKE :params
+				OR a.applicableManufacturerCountry LIKE :params
+				OR a.totalAmountOfPayment LIKE :params
+				OR a.dateOfPayment LIKE :params
+				OR a.numberOfPaymentIncludedInTotal LIKE :params
+				OR a.formOfPaymentOrTransferValue LIKE :params
+				OR a.natureOfPayment LIKE :params
+				OR a.cityOfTravel LIKE :params
+				OR a.stateOfTravel LIKE :params
+				OR a.countryOfTravel LIKE :params
+				OR a.physicianOwnershipIndicator LIKE :params
+				OR a.thirdPartyPaymentRecipientIndicator LIKE :params
+				OR a.nameOfThirdPartyRecievingPayment LIKE :params
+				OR a.charityIndicator LIKE :params
+				OR a.thirdPartyEqualsCoveredRecipientIndcator LIKE :params
+				OR a.contextualInformation LIKE :params
+				OR a.delayInPublicationIndicator LIKE :params
+				OR a.recordId LIKE :params
+				OR a.disputeStatusForPublication LIKE :params
+				OR a.productIndicator LIKE :params
+				OR a.nameOfAssociatedCoveredDrug LIKE :params
+				OR a.nameOfAssociatedCoveredDrug2 LIKE :params
+				OR a.nameOfAssociatedCoveredDrug3 LIKE :params
+				OR a.nameOfAssociatedCoveredDrug4 LIKE :params
+				OR a.nameOfAssociatedCoveredDrug5 LIKE :params
+				OR a.ndcOfAssociatedDrug LIKE :params
+				OR a.ndcOfAssociatedDrug2 LIKE :params
+				OR a.ndcOfAssociatedDrug3 LIKE :params
+				OR a.ndcOfAssociatedDrug4 LIKE :params
+				OR a.ndcOfAssociatedDrug5 LIKE :params
+				OR a.nameOfCoveredDeviceOrSupply LIKE :params
+				OR a.nameOfCoveredDeviceOrSupply2 LIKE :params
+				OR a.nameOfCoveredDeviceOrSupply3 LIKE :params
+				OR a.nameOfCoveredDeviceOrSupply4 LIKE :params
+				OR a.nameOfCoveredDeviceOrSupply5 LIKE :params
+				OR a.programYear LIKE :params
+				OR a.paymentPublicationDate LIKE :params';
+				$query = $this->_em->createQuery($dql);
+				$query->setParameter('params', '%' . $params . '%');
+				return $query->getResult();
+	}
+	
+	public function populateSpreadsheetData($entityArray, $phpExcelObject)
+	{
+		//@TODO: CREATE CELL HEADERS WITH VALUES A1 -> BK1
+		// Iteratate over entity array with the index starting at 2
+		// so as not to overwrite the header.
+		foreach($entityArray as $oneEntity){
+			for($i = 0; $i < count($entityArray); $i++){
+				$phpExcelObject->setCellValue();
+			}
+		}
+	}
 }
